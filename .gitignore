@@ -1,0 +1,14 @@
+#  Local .terraform directories
+**/.terraform/*
+
+# For IntelliJ Users
+.idea
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+
+# .tfvars files
+# *.tfvars
+.vscode/*
+
