@@ -1,3 +1,4 @@
 output "vpc_id" {
-  value = aws_vpc.rvshare_vpc.id
+  value = aws_vpc.vpc.id
 }
+
