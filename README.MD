@@ -20,6 +20,7 @@ Answer 'yes' when prompted.
 ### About the project
 I structured the project for ease of use. To apply, there is only one command. 
 In a production environment I would separate the superstructure (and state) of the VPC from the EC2 boxes which live within it. 
+I also did not include remote state. I did this only for ease of use. In prod, remote state is essential. 
 
 #### EC2
 The EC2 module provides a simple way to choose a name, AMI, subnet, and the VPC in which the box will reside .
@@ -35,5 +36,5 @@ Extending the module is easy, but since we only have one VPC in this use case, I
 
 #### Overall 
 For a prod environment, there is a lot that I would suggest about an actual web app infra. ELBs, RDS, DNS etc.
-But I tried to aim for a reasonable interpretation the original task. 
+But I tried to aim for a reasonable interpretation of the original task. 
 Thanks for the opportunity!!

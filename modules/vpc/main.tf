@@ -62,6 +62,10 @@ resource "aws_default_route_table" "main" {
   tags = {
     Name = "main"
   }
+
+  lifecycle {
+    ignore_changes = all
+  }
 }
 
 resource "aws_route_table_association" "private_route_table_association" {
