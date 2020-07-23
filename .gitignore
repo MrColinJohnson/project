@@ -4,11 +4,11 @@
 # For IntelliJ Users
 .idea
 
-# .tfstate files
+# .tfstate userdata
 *.tfstate
 *.tfstate.*
 
-# .tfvars files
+# .tfvars userdata
 # *.tfvars
 .vscode/*
 
