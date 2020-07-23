@@ -16,7 +16,6 @@ resource "aws_subnet" "public" {
   }
 }
 
-
 resource "aws_subnet" "private" {
   vpc_id     = aws_vpc.vpc.id
   cidr_block = var.private_cidr_block
@@ -25,8 +24,6 @@ resource "aws_subnet" "private" {
     Name = "private"
   }
 }
-
-
 
 resource "aws_internet_gateway" "public_subnet_gateway" {
   vpc_id = aws_vpc.vpc.id
@@ -54,7 +51,6 @@ resource "aws_route_table_association" "public_route_table_association" {
   route_table_id = aws_route_table.custom_route_table.id
 }
 
-
 resource "aws_default_route_table" "main" {
   default_route_table_id = aws_vpc.vpc.default_route_table_id
 
@@ -72,7 +68,6 @@ resource "aws_route_table_association" "private_route_table_association" {
   subnet_id      = aws_subnet.private.id
   route_table_id = aws_default_route_table.main.id
 }
-
 
 resource "aws_nat_gateway" "gateway" {
   allocation_id = aws_eip.nat.id

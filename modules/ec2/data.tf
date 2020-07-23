@@ -26,7 +26,6 @@ data "aws_vpc" "vpc" {
   id = var.vpc
 }
 
-
 data "template_file" "userdata" {
   template = var.userdata
 }
