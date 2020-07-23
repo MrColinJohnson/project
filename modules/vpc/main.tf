@@ -54,3 +54,35 @@ resource "aws_route_table_association" "public_route_table_association" {
   route_table_id = aws_route_table.custom_route_table.id
 }
 
+
+resource "aws_default_route_table" "main" {
+  default_route_table_id = aws_vpc.vpc.default_route_table_id
+
+  route {
+    cidr_block = "0.0.0.0/0"
+    gateway_id = aws_nat_gateway.gateway.id
+  }
+
+  tags = {
+    Name = "main"
+  }
+}
+
+resource "aws_route_table_association" "private_route_table_association" {
+  subnet_id      = aws_subnet.private.id
+  route_table_id = aws_default_route_table.main.id
+}
+
+
+resource "aws_nat_gateway" "gateway" {
+  allocation_id = aws_eip.nat.id
+  subnet_id     = aws_subnet.public.id
+
+  tags = {
+    Name = "nat_gateway"
+  }
+}
+
+resource "aws_eip" "nat" {
+  vpc      = true
+}
